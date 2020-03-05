@@ -12,7 +12,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*  position: relative; */
   overflow: hidden;
   font-family: "Raleway", sans-serif;
 }
@@ -65,7 +64,6 @@ svg text {
 
 .redPlanet {
   position: absolute;
-  /* width: 100%; */
   bottom: 4%;
   right: 13%;
 }
@@ -77,7 +75,7 @@ svg text {
 
 .purplePlanet {
   position: absolute;
-  bottom: -40%;
+  bottom: -10%;
   left: 13%;
   z-index: 1;
 }
@@ -130,7 +128,7 @@ svg text {
 
   .purplePlanet {
     left: -2%;
-    bottom: -50%;
+    bottom: -13%;
   }
 
   .bluePlanet {
