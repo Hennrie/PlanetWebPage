@@ -23,7 +23,6 @@ $(document).ready(function() {
 
   $(".link").on("click", function(event) {
     event.preventDefault();
-    /* let currentPageContent = $(".content"); */
     let url = $(this).attr("href");
     const className = $(this)
       .parent()
@@ -44,11 +43,6 @@ $(document).ready(function() {
         console.log("kill");
         $(this).detach();
       });
-      /*  
-      jo.addEventListener("animationend", function() {
-        console.log("jo");
-      }); */
     });
-    return false;
   });
 });
