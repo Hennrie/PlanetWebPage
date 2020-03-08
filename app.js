@@ -18,31 +18,31 @@ function getTransitionEndEventName() {
 }
 
 $(document).ready(function() {
-  let jo = document.querySelector(".content");
+  let currentPageContent = document.querySelector(".content");
   let transitionEndEventName = getTransitionEndEventName();
 
   $(".link").on("click", function(event) {
     event.preventDefault();
-    let old = $(".content");
+    /* let currentPageContent = $(".content"); */
     let url = $(this).attr("href");
     const className = $(this)
       .parent()
       .attr("class");
     console.log(className);
-    const el = document.querySelector("." + className);
+    const parentClassElement = document.querySelector("." + className);
 
     $("." + className + " text").fadeOut(function() {
       $("." + className).toggleClass("scale");
 
-      $(old).toggleClass("fadeOut");
-      el.addEventListener(transitionEndEventName, function() {
+      $(currentPageContent).toggleClass("fadeOut");
+      parentClassElement.addEventListener(transitionEndEventName, function() {
         console.log(transitionEndEventName);
 
-        old.detach();
         window.location.href = url;
       });
-      jo.addEventListener("animationend", function() {
+      currentPageContent.addEventListener("animationend", function() {
         console.log("kill");
+        $(this).detach();
       });
       /*  
       jo.addEventListener("animationend", function() {
