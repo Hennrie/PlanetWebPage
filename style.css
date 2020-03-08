@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-  box-sizing: border-box;
 }
 
 body {
@@ -62,15 +61,22 @@ svg text {
   pointer-events: none;
 }
 
-.redPlanet {
+.rEdPlanet {
   position: absolute;
   bottom: 4%;
   right: 13%;
 }
 
-.redPlanet circle:hover {
-  stroke-width: 3px;
+.rEdPlanet circle {
+  stroke-opacity: 0;
+  stroke-width: 2px;
   stroke: white;
+  transition: all 1s ease;
+}
+
+.rEdPlanet circle:hover {
+  stroke-opacity: 1;
+  transition: all 1s ease;
 }
 
 .purplePlanet {
@@ -80,9 +86,16 @@ svg text {
   z-index: 1;
 }
 
-.purplePlanet circle:hover {
-  stroke-width: 3px;
+.purplePlanet circle {
+  stroke-opacity: 0;
+  stroke-width: 2px;
   stroke: white;
+  transition: all 1s ease;
+}
+
+.purplePlanet circle:hover {
+  stroke-opacity: 1;
+  transition: all 1s ease;
 }
 
 .bluePlanet {
@@ -91,9 +104,81 @@ svg text {
   left: 10%;
 }
 
-.bluePlanet circle:hover {
-  stroke-width: 3px;
+.bluePlanet circle {
+  stroke-opacity: 0;
+  stroke-width: 2px;
   stroke: white;
+  transition: all 1s ease;
+}
+
+.bluePlanet circle:hover {
+  stroke-opacity: 1;
+  transition: all 1s ease;
+}
+
+.translateRight {
+  transform: translateX();
+}
+
+.scale {
+  z-index: 2;
+  transform: scale(8);
+  transition: transform 1s ease;
+  pointer-events: none;
+}
+
+/* #####################################################################
+
+### MIND PAGE STYLING
+
+
+*/
+
+.mindMainTopicPlanet {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+}
+
+.smallPlanetFront {
+  position: absolute;
+  right: 10%;
+  bottom: 7%;
+}
+
+/* #####################################################################
+
+### ANIMATIONS
+
+
+*/
+.content {
+  animation: fadeIn 0.75s;
+}
+
+.fadeOut {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 /* #####################################################################
@@ -111,24 +196,21 @@ svg text {
 
 @media (max-width: 1280px) {
   .redPlanet {
-    transform: scale(0.8);
-    right: 2%;
-    bottom: 1%;
   }
 
   .purplePlanet {
-    transform: scale(0.9);
   }
 }
-
 @media (max-width: 1600px) {
   .redPlanet {
+    transform: scale(0.8);
     right: 3%;
   }
 
   .purplePlanet {
-    left: -2%;
+    left: 4%;
     bottom: -13%;
+    transform: scale(0.95);
   }
 
   .bluePlanet {
