@@ -18,30 +18,30 @@ function getTransitionEndEventName() {
 }
 
 $(document).ready(function() {
+  /* let currentPageContent = document.querySelector(".content"); */
   let currentPageContent = document.querySelector(".content");
+
   let transitionEndEventName = getTransitionEndEventName();
 
   $(".link").on("click", function(event) {
     event.preventDefault();
     let url = $(this).attr("href");
-    const className = $(this)
+    let className = $(this)
       .parent()
       .attr("class");
     console.log(className);
     const parentClassElement = document.querySelector("." + className);
 
     $("." + className + " text").fadeOut(function() {
-      $("." + className).toggleClass("scale");
+      parentClassElement.classList.add("scale");
 
-      $(currentPageContent).toggleClass("fadeOut");
+      currentPageContent.classList.add("fadeOut");
       parentClassElement.addEventListener(transitionEndEventName, function() {
-        console.log(transitionEndEventName);
-
         window.location.href = url;
       });
       currentPageContent.addEventListener("animationend", function() {
         console.log("kill");
-        $(this).detach();
+        currentPageContent.classList.remove("fadeOut");
       });
     });
   });
