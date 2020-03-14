@@ -37,11 +37,9 @@ $(document).ready(function() {
 
       currentPageContent.classList.add("fadeOut");
       parentClassElement.addEventListener(transitionEndEventName, function() {
-        window.location.href = url;
-      });
-      currentPageContent.addEventListener("animationend", function() {
         console.log("kill");
-        currentPageContent.classList.remove("fadeOut");
+        currentPageContent.remove();
+        window.location.href = url;
       });
     });
   });
